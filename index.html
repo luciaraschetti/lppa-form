@@ -5,55 +5,69 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Registration Form</title>
         <link rel="stylesheet" href="css/reset.css">
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;1,700&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="css/style.css">
         <script type="text/javascript" src="js/app.js"></script>
     </head>
     <body>
         <div class="wrapper">
             <div class="main">
-                <form>
-                    <label for="first-name">First Name</label>
-                    <input id="first-name" type="text" name="first-name">
-
-                    <label for="last-name">Last Name</label>
-                    <input id="last-name" type="text" name="last-name">
-
-                    <label for="email">Email</label>
-                    <input id="email" type="email" name="email">
-
-                    <label for="email">Age</label>
-                    <input id="age" type="number" name="age">
-
-                    <label>Sex</label>
-                    <input id="male" type="radio" name="sex">
-                    <label for="male">Male</label>
-                    <input id="female" type="radio" name="sex">
-                    <label for="female">Female</label>
-                    <input id="other" type="radio" name="sex">
-                    <label for="other">Other</label>
-
-                    <label>Areas of interest</label>
-                    <input id="music" type="checkbox" name="interests">
-                    <label for="music">Music</label>
-                    <input id="sports" type="checkbox" name="interests">
-                    <label for="sports">Sports</label>
-                    <input id="videogames" type="checkbox" name="interests">
-                    <label for="videogames">Videogames</label>
-                    <input id="technology" type="checkbox" name="interests">
-                    <label for="technology">Technology</label>
-                    
-                    <label for="countries">Country</label>
-                    <select id="countries" name="countries">
+                <form id="registration-form">
+                    <div id="personal-info" class="tab">
+                        <div>
+                            <label for="first-name">First Name</label>
+                            <input id="first-name" type="text" name="first-name">
+                            <label for="last-name">Last Name</label>
+                            <input id="last-name" type="text" name="last-name">
+                        </div>
+                        <div>
+                            <label for="email">Email</label>
+                            <input id="email" type="email" name="email">
+                            <label for="email">Age</label>
+                            <input id="age" type="number" name="age">
+                        </div>
+                    </div>
+                    <div id="sex" class="tab">
+                        <label>Sex</label>
+                        <div>
+                            <input id="male" type="radio" name="sex">
+                            <label for="male">Male</label>
+                            <input id="female" type="radio" name="sex">
+                            <label for="female">Female</label>
+                            <input id="other" type="radio" name="sex">
+                            <label for="other">Other</label>
+                        </div>
+                    </div>
+                    <div id="areas" class="tab">
+                        <label>Areas of interest</label>
+                        <div>
+                            <input id="music" type="checkbox" name="interests">
+                            <label for="music">Music</label>
+                            <input id="sports" type="checkbox" name="interests">
+                            <label for="sports">Sports</label>
+                            <input id="videogames" type="checkbox" name="interests">
+                            <label for="videogames">Videogames</label>
+                            <input id="technology" type="checkbox" name="interests">
+                            <label for="technology">Technology</label>
+                        </div>
+                    </div>
+                    <div id="dropdown" class="tab">
+                        <label for="countries">Country</label>
+                        <select id="countries" name="countries">
                         <option value="argentina">Argentina</option>
                         <option value="brasil">Brasil</option>
                         <option value="chile">Chile</option>
                         <option value="uruguay">Uruguay</option>
                     </select>
-
-                    <label for="commentaries">Commentaries</label>
-                    <textarea id="commentaries" name="commentaries" cols="50" rows="8"></textarea>
-
-                    <input type="submit" value="submit">
+                    </div>
+                    <div id="comments" class="tab">
+                        <label for="commentaries">Commentaries</label>
+                        <textarea id="commentaries" name="commentaries" cols="50" rows="8"></textarea>
+                    </div>
+                    <div id="buttons">
+                        <button id="back">Go Back</button>
+                        <button id="next" type="submit">Next</button>
+                    </div>
                 </form>
             </div>
         </div>
