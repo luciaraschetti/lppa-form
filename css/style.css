@@ -9,6 +9,7 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    height: 100%;
     min-height: 100vh;
 }
 
@@ -50,7 +51,8 @@ body {
     align-self: center;
     font-size: 1.5rem;
     height: 44px;
-    width: 345px;
+    width: 100%;
+    max-width: 345px;
     background-color: #00000057;
     border-radius: 10px;
     text-align: center;
@@ -127,7 +129,8 @@ body {
 
 .wrapper .main #registration-form .tab#comments textarea {
     height: 230px;
-    width: 330px;
+    width: 100%;
+    max-width: 330px;
     padding: 0 5px;
     margin: 35px 0 5px 0;
     border: none;
@@ -167,13 +170,11 @@ body {
     outline: 1px solid #b14783;
 }
 
-.wrapper .main #registration-form .tab#comments,
+.wrapper .main #registration-form .tab#final,
 .wrapper .main #registration-form .tab#personal-info,
 .wrapper .main #registration-form .tab#dropdown,
 .wrapper .main #registration-form .tab#sex,
-.wrapper .main #registration-form .tab#areas,
-.wrapper .main #registration-form #buttons button,
-.wrapper .main #registration-form #title {
+.wrapper .main #registration-form .tab#areas {
     display: none;
 }
 
