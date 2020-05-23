@@ -13,19 +13,16 @@
         <div class="wrapper">
             <div class="main">
                 <form id="registration-form">
+                    <label id="title">Register</label>
                     <div id="personal-info" class="tab">
-                        <div>
-                            <label for="first-name">First Name</label>
-                            <input id="first-name" type="text" name="first-name">
-                            <label for="last-name">Last Name</label>
-                            <input id="last-name" type="text" name="last-name">
-                        </div>
-                        <div>
-                            <label for="email">Email</label>
-                            <input id="email" type="email" name="email">
-                            <label for="email">Age</label>
-                            <input id="age" type="number" name="age">
-                        </div>
+                        <label for="first-name">First Name</label>
+                        <input id="first-name" type="text" name="first-name">
+                        <label for="last-name">Last Name</label>
+                        <input id="last-name" type="text" name="last-name">
+                        <label for="email">Email</label>
+                        <input id="email" type="email" name="email">
+                        <label for="email">Age</label>
+                        <input id="age" type="number" name="age">   
                     </div>
                     <div id="sex" class="tab">
                         <label>Sex</label>
@@ -62,13 +59,21 @@
                     </div>
                     <div id="comments" class="tab">
                         <label for="commentaries">Commentaries</label>
-                        <textarea id="commentaries" name="commentaries" cols="50" rows="8"></textarea>
+                        <textarea id="commentaries" name="commentaries"></textarea>
                     </div>
                     <div id="buttons">
-                        <button id="back">Go Back</button>
+                        <button id="back">Back</button>
                         <button id="next" type="submit">Next</button>
                     </div>
                 </form>
+                <div id="steps">
+                    <span class="step"></span>
+                    <span class="step"></span>
+                    <span class="step"></span>
+                    <span class="step"></span>
+                    <span class="step"></span>
+                    <span id="final" class="step"></span>
+                </div>
             </div>
         </div>
     </body>
