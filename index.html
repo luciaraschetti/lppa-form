@@ -63,8 +63,9 @@
                         </div>
                     </div>
                     <div id="dropdown" class="tab">
-                        <label for="countries">Country</label>
+                        <label class="title">Country</label>
                         <select id="countries" name="countries">
+                        <option value="" disabled selected>Select a country</option>
                         <option value="argentina">Argentina</option>
                         <option value="brasil">Brasil</option>
                         <option value="chile">Chile</option>
@@ -72,8 +73,12 @@
                     </select>
                     </div>
                     <div id="comments" class="tab">
-                        <label for="commentaries">Commentaries</label>
+                        <label class="title">Commentaries</label>
                         <textarea id="commentaries" name="commentaries"></textarea>
+                    </div>
+                    <div id="final" class="tab">
+                        <p>Registered Successfully</p>
+                        <button id="home">Start Over</button>
                     </div>
                     <div id="buttons">
                         <button id="back">Back</button>

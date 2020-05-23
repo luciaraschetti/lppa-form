@@ -44,24 +44,36 @@ body {
 }
 
 .wrapper .main #registration-form .tab .title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     align-self: center;
     font-size: 1.5rem;
-    padding: 10px 54px;
-    background-color: rgba(0, 0, 0, 0.342);
+    height: 44px;
+    width: 345px;
+    background-color: #00000057;
     border-radius: 10px;
+    text-align: center;
+    color: #e2e2e2;
 }
 
 .wrapper .main #registration-form .tab#personal-info,
 .wrapper .main #registration-form .tab#sex,
-.wrapper .main #registration-form .tab#areas {
+.wrapper .main #registration-form .tab#areas,
+.wrapper .main #registration-form .tab#dropdown,
+.wrapper .main #registration-form .tab#comments {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
     justify-content: center;
     width: 90%;
     padding: 0 5px;
     font-size: 1.4rem;
     color: #e2e2e2;
+}
+
+.wrapper .main #registration-form .tab#personal-info {
+    align-items: flex-start;
 }
 
 .wrapper .main #registration-form .tab#personal-info #first-name,
@@ -73,33 +85,95 @@ body {
     margin: 10px 0 20px 0;
     border-radius: 5px;
     border: none;
+    background-color: #0000002f;
     font-size: 1.1rem;
     font-family: Montserrat, sans-serif;
-}
-
-.wrapper .main #registration-form .tab#sex,
-.wrapper .main #registration-form .tab#areas {
-    align-items: center;
+    color: #e2e2e2;
 }
 
 .wrapper .main #registration-form .tab .options .option {
     margin: 30px;
     padding: 10px 20px;
-    background-color: rgba(0, 0, 0, 0.185);
+    background-color: #0000002f;
     border-radius: 10px;
+    width: 305px;
+    
 }
 
 .wrapper .main #registration-form .tab#areas .options .option {
     margin: 20px;
     padding: 10px 20px;
-    background-color: rgba(0, 0, 0, 0.185);
+    background-color: #0000002f;
     border-radius: 10px;
 }
 
+.wrapper .main #registration-form .tab#dropdown #countries {
+    height: 35px;
+    width: 345px;
+    padding: 0 5px;
+    margin: 115px 0;
+    border: none;
+    border-radius: 5px;
+    font-family: Montserrat, sans-serif;
+    font-size: 1.2rem;
+    background-color: #2A263F;
+    color: #e2e2e2;
+}
+
+.wrapper .main #registration-form .tab#dropdown #countries option {
+    background-color: #2A263F;
+    color: #e2e2e2;
+}
+
+.wrapper .main #registration-form .tab#comments textarea {
+    height: 230px;
+    width: 330px;
+    padding: 0 5px;
+    margin: 35px 0 5px 0;
+    border: none;
+    border-radius: 5px;
+    font-family: Montserrat, sans-serif;
+    font-size: 1.2rem;
+    background-color: #2A263F;
+    color: #e2e2e2;
+}
+
+.wrapper .main #registration-form .tab#final {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 50px 0;
+    padding: 100px 0;
+    color: #e2e2e2;
+    font-size: 2.5rem;
+    line-height: 1.5;
+    text-align: center;
+}
+
+.wrapper .main #registration-form #final #home {
+    padding: 5px 70px;
+    margin: 60px 0;
+    border: none;
+    border-radius: 10px;
+    background: #b14783;
+    font-size: 1.4rem;
+    font-family: Montserrat, sans-serif;
+    font-weight: 500;
+    color: #e2e2e2;   
+}
+
+.wrapper .main #registration-form input:focus {
+    outline: 1px solid #b14783;
+}
+
 .wrapper .main #registration-form .tab#comments,
+.wrapper .main #registration-form .tab#personal-info,
 .wrapper .main #registration-form .tab#dropdown,
 .wrapper .main #registration-form .tab#sex,
-.wrapper .main #registration-form .tab#personal-info {
+.wrapper .main #registration-form .tab#areas,
+.wrapper .main #registration-form #buttons button,
+.wrapper .main #registration-form #title {
     display: none;
 }
 
