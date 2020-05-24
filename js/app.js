@@ -30,9 +30,9 @@ var displayTab = function(currentTab) { //displays the selected tab
     }
 
     if(currentTab === (tabs.length - 2)) { //changes 'next' to 'submit' before reaching the final message tab
-        submitBtn.innerHTML = "Submit";
+        submitBtn.innerHTML = 'Submit';
     } else {
-        submitBtn.innerHTML = "Next";
+        submitBtn.innerHTML = 'Next';
     }
 
     if(currentTab === 5) {
@@ -43,8 +43,22 @@ var displayTab = function(currentTab) { //displays the selected tab
 }
 
 var validateForm = function() {
-    for(var i = 0; i < inputs.length; i++) { //checks every input in the form
-        console.log(inputs[i].id);
+    window.console.clear();
+    var onlyLetters = /^[a-zA-Z]*$/g; //regular expression that contains only letters
+
+    for(var i = 0; i < inputs.length; i++) { //checks every input in the first tab
+        var currentInput = inputs[i].id;
+        if(inputs[i].value === "") { //validates empty fields
+            console.log( `%c (${currentInput}): Empty field 😕`, 'color: #b14783; font-weight: bold; font-size: 1rem; background-color: #2c2c48da;');
+        }
+        if(inputs[i].id === 'first-name' || inputs[i].id === 'last-name') {
+            if(inputs[i].value.length < 3) { //validates for input longer than 3 characters
+                console.log(`%c (${currentInput}): Please enter more than 3 caracters 😅`, 'color: #b14783; font-weight: bold; font-size: 1rem; background-color: #2c2c48da;'); 
+            }
+            if(!onlyLetters.test(inputs[i].value)) { //checks if the regex pattern is inside the input, if not returns false
+                console.log(`%c (${currentInput}): Please use letters and spaces only 😅`, 'color: #b14783; font-weight: bold; font-size: 1rem; background-color: #2c2c48da;'); 
+            }
+        }
     }
 }
 
