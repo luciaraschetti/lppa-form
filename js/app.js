@@ -10,6 +10,7 @@ var currentTab = null;
 var inputs = null;
 var radioBtns = null;
 var checks = null;
+var select = null;
 var wentBack = null;
 var isValid = null;
 
@@ -103,6 +104,16 @@ var validateForm = function() {
             isValid = false;
             return isValid;
         }
+
+        if(tabs[currentTab].id === 'dropdown') {
+            if(select.value === '') {
+                console.log('false');
+                isValid = false;
+            } else {
+                console.log('true');
+                isValid = true;
+            }
+        }
         
     }
     return isValid; //if false, user cannot move forward
@@ -143,6 +154,7 @@ window.onload = function() {
     inputs = document.getElementsByTagName('input');
     radioBtns = document.getElementsByClassName('radio');
     checks = document.getElementsByName('interests');
+    select = document.getElementById('countries');
     currentTab = 0;
     wentBack = false;
     isValid = true;
