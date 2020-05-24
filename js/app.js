@@ -12,8 +12,14 @@ var radioBtns = null;
 var checks = null;
 var select = null;
 var commentaries = null;
+var firstName = null;
+var lastName = null;
+var age = null;
+var email = null;
 var wentBack = null;
 var isValid = null;
+var errors = null;
+var errorMsg = null;
 
 var stepPosition = function(tab) { //the step that corresponds to the current tab turns violet, gets the value from displayTab()
     if(wentBack){ //if wentBack is true, changes the current tab to violet & the next tab back to grey
@@ -29,6 +35,7 @@ var displayTab = function(currentTab) { //displays the selected tab
     if(currentTab === 0) { //disables 'back' button in the 1st tab
         backBtn.disabled = true;
         backBtn.style.backgroundColor = '#7c375e';
+        errorMsg.setAttribute('style', 'display: none !important');
     }else {
         backBtn.disabled = false;
         backBtn.style.backgroundColor = '#b14783';
@@ -36,6 +43,7 @@ var displayTab = function(currentTab) { //displays the selected tab
 
     if(currentTab === (tabs.length - 2)) { //changes 'next' to 'submit' before reaching the final message tab
         submitBtn.innerHTML = 'Submit';
+        errorMsg.setAttribute('style', 'display: none !important');
     } else {
         submitBtn.innerHTML = 'Next';
     }
@@ -58,28 +66,34 @@ var validateForm = function() {
         var currentInput = inputs[i].id;
 
         if(inputs[i].value === "") { //validates empty fields
+            errors = document.getElementById(inputs[i].id);
             console.log( `%c (${currentInput}): Empty field 😕`, 'color: #b14783; font-weight: bold; font-size: 1rem; background-color: #2c2c48da;');
             isValid = false;
+            errors.placeholder = 'Empty field'
         } else {
             if(inputs[i].id === 'first-name' || inputs[i].id === 'last-name') {
                 if(inputs[i].value.length < 3) { //validates for input longer than 3 characters
                     console.log(`%c (${currentInput}): Please enter more than 3 caracters 😅`, 'color: #b14783; font-weight: bold; font-size: 1rem; background-color: #2c2c48da;'); 
                     isValid = false;
+                    errors.placeholder = 'Please enter more than 3 caracters'
                 } else if (!onlyLetters.test(inputs[i].value)) {
                     console.log(`%c (${currentInput}): Please use letters and spaces only 😅`, 'color: #b14783; font-weight: bold; font-size: 1rem; background-color: #2c2c48da;'); 
                     isValid = false;
+                    errors.placeholder = 'Please use letters and spaces only'
                 }
             }
             if(inputs[i].id === 'age') { //validates age input
                 if(!onlyNumbers.test(inputs[i].value)) { 
                     console.log(`%c (${currentInput}): Please use whole numbers between 0-100 only 👵👴`, 'color: #b14783; font-weight: bold; font-size: 1rem; background-color: #2c2c48da;'); 
                     isValid = false;
+                    errors.placeholder = 'Please use whole numbers between 0-100 only'
                 }
             }
             if(inputs[i].id === 'email') { //validates email input
                 if(!validEmail.test(inputs[i].value)) {
                     console.log(`%c (${currentInput}): Invalid email format 📧`, 'color: #b14783; font-weight: bold; font-size: 1rem; background-color: #2c2c48da;'); 
                     isValid = false;
+                    errors.placeholder = 'Invalid email format'
                 }
             }
         }
@@ -88,30 +102,36 @@ var validateForm = function() {
             for(var i = 0; i < radioBtns.length; i++) { //checks if any radio button is checked
                 if(radioBtns[i].checked) {
                     isValid = true;
+                    errorMsg.setAttribute('style', 'display: none !important');
                     return isValid;
                 }
             }
             isValid = false;
             console.log(`%c (Sex): Please select an option 😅 `, 'color: #b14783; font-weight: bold; font-size: 1rem; background-color: #2c2c48da;'); 
+            errorMsg.setAttribute('style', 'display: flex !important');
         }
 
         if(tabs[currentTab].id === 'areas') {
             for(var i = 0; i < checks.length; i++) { //checks if any box is checked
                 if(checks[i].checked) {
                     isValid = true;
+                    errorMsg.setAttribute('style', 'display: none !important');
                     return isValid;
                 }
             }
             isValid = false;
             console.log(`%c (Areas of Interest): Please select an option 😅 `, 'color: #b14783; font-weight: bold; font-size: 1rem; background-color: #2c2c48da;');
+            errorMsg.setAttribute('style', 'display: flex !important');
         }
 
         if(tabs[currentTab].id === 'dropdown') { //checks if selection is empty
             if(select.value === '') {
                 isValid = false;
                 console.log(`%c (Country): Please select an option 😅 `, 'color: #b14783; font-weight: bold; font-size: 1rem; background-color: #2c2c48da;');
+                errorMsg.setAttribute('style', 'display: flex !important');
             } else {
                 isValid = true;
+                errorMsg.setAttribute('style', 'display: none !important');
             }
         }
         
@@ -180,6 +200,11 @@ window.onload = function() {
     checks = document.getElementsByName('interests');
     select = document.getElementById('countries');
     commentaries = document.getElementById('commentaries');
+    firstName = document.getElementById('first-name');
+    lastName = document.getElementById('last-name');
+    email = document.getElementById('email');
+    age = document.getElementById('age');
+    errorMsg = document.getElementById('errorMsg');
     currentTab = 0;
     wentBack = false;
     isValid = true;
