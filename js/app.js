@@ -105,7 +105,7 @@ var validateForm = function() {
             return isValid;
         }
 
-        if(tabs[currentTab].id === 'dropdown') {
+        if(tabs[currentTab].id === 'dropdown') { //checks if selection is empty
             if(select.value === '') {
                 isValid = false;
             } else {
@@ -147,7 +147,9 @@ var changeTab = function(buttonInput) { //displays the chosen tab
 
         getCheckSelection(); //logs 3rd tab
 
+        console.log(`%c (Country): ${select.value}`, 'color: #b14783; font-weight: bold; font-size: 1rem; background-color: #2c2c48da;'); 
 
+        
     }
 
     displayTab(currentTab);
