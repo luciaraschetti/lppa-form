@@ -45,6 +45,8 @@ var displayTab = function(currentTab) { //displays the selected tab
 var validateForm = function() {
     window.console.clear();
     var onlyLetters = /^[a-zA-Z]*$/g; //regular expression that contains only letters
+    var onlyNumbers = /^([1-9]?\d|100)$/; //regular expression that contains only numbers from 0-100
+    var validEmail = /[\w._%+-]+@[\w.-]+\.[a-zA-Z]{2,4}/; // regular expression that contains possible email formats
 
     for(var i = 0; i < inputs.length; i++) { //checks every input in the first tab
         var currentInput = inputs[i].id;
@@ -57,6 +59,16 @@ var validateForm = function() {
             }
             if(!onlyLetters.test(inputs[i].value)) { //checks if the regex pattern is inside the input, if not returns false
                 console.log(`%c (${currentInput}): Please use letters and spaces only 😅`, 'color: #b14783; font-weight: bold; font-size: 1rem; background-color: #2c2c48da;'); 
+            }
+        }
+        if(inputs[i].id === 'age') { //validates age input
+            if(!onlyNumbers.test(inputs[i].value)) { 
+                console.log(`%c (${currentInput}): Please use whole numbers between 0-100 only 👵👴`, 'color: #b14783; font-weight: bold; font-size: 1rem; background-color: #2c2c48da;'); 
+            }
+        }
+        if(inputs[i].id === 'email') {
+            if(!validEmail.test(inputs[i].value)) {
+                console.log(`%c (${currentInput}): Invalid email format 📧`, 'color: #b14783; font-weight: bold; font-size: 1rem; background-color: #2c2c48da;'); 
             }
         }
     }
