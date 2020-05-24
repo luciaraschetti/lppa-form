@@ -107,10 +107,8 @@ var validateForm = function() {
 
         if(tabs[currentTab].id === 'dropdown') {
             if(select.value === '') {
-                console.log('false');
                 isValid = false;
             } else {
-                console.log('true');
                 isValid = true;
             }
         }
@@ -134,10 +132,17 @@ var changeTab = function(buttonInput) { //displays the chosen tab
 
     currentTab += buttonInput; //increase/decrease current tab value depending on clicked button value
 
-    if(tabs[currentTab].id === 'final') {
-        for(var i = 0; i < 4; i++) {
+    if(tabs[currentTab].id === 'final') { //logs everything to console
+        for(var i = 0; i < 4; i++) { //logs 1st tab
             var currentInput = inputs[i].id;
             console.log(`%c (${currentInput}): ${inputs[i].value}`, 'color: #b14783; font-weight: bold; font-size: 1rem; background-color: #2c2c48da;'); 
+        }
+
+        for(var i = 0; i < radioBtns.length; i++) { //logs 2nd tab
+            if(radioBtns[i].checked) {
+                var selection = radioBtns[i].value;
+                console.log(`%c (Sex): ${selection}`, 'color: #b14783; font-weight: bold; font-size: 1rem; background-color: #2c2c48da;'); 
+            }
         }
     }
 
