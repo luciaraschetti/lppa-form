@@ -6,10 +6,12 @@ var backBtn = null;
 var submitBtn = null;
 var buttons = null;
 var currentTab = null;
+var inputs = null;
 var wentBack = null;
+var isValid = null;
 
 var stepPosition = function(tab) { //the step that corresponds to the current tab turns violet, gets the value from displayTab()
-    if(wentBack){ //if wentBack is true, change the current tab to violet & the next tab back to grey
+    if(wentBack){ //if wentBack is true, changes the current tab to violet & the next tab back to grey
         steps[tab].style.backgroundColor = 'violet';
         steps[(tab + 1)].style.backgroundColor = '#bbbbbb';
     } else {
@@ -40,7 +42,14 @@ var displayTab = function(currentTab) { //displays the selected tab
     stepPosition(currentTab);
 }
 
+var validateForm = function() {
+    for(var i = 0; i < inputs.length; i++) { //checks every input in the form
+        console.log(inputs[i].id);
+    }
+}
+
 var changeTab = function(buttonInput) { //displays the chosen tab
+    validateForm();
     tabs[currentTab].setAttribute('style', 'display: none !important'); //setAttribute overrides the css & hides the current tab
     if(buttonInput === -1) { //true if user clicked on 'back' button
         wentBack = true;
@@ -48,7 +57,6 @@ var changeTab = function(buttonInput) { //displays the chosen tab
         wentBack = false;
     }
     currentTab += buttonInput; //increase/decrease current tab value depending on clicked button value
-    console.log(wentBack);
     displayTab(currentTab);
 }
 
@@ -58,7 +66,9 @@ window.onload = function() {
     backBtn = document.getElementById('back');
     submitBtn = document.getElementById('next');
     buttons = document.getElementById('buttons');
+    inputs = document.getElementsByTagName('input');
     currentTab = 0;
     wentBack = false;
+    isValid = true;
     displayTab(currentTab);
 }
