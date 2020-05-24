@@ -99,6 +99,13 @@ var changeTab = function(buttonInput) { //displays the chosen tab
 
     currentTab += buttonInput; //increase/decrease current tab value depending on clicked button value
 
+    if(tabs[currentTab].id === 'final') {
+        for(var i = 0; i < 4; i++) {
+            var currentInput = inputs[i].id;
+            console.log(`%c (${currentInput}): ${inputs[i].value}`, 'color: #b14783; font-weight: bold; font-size: 1rem; background-color: #2c2c48da;'); 
+        }
+    }
+
     displayTab(currentTab);
 }
 
