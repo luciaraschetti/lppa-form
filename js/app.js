@@ -48,7 +48,7 @@ var displayTab = function(currentTab) { //displays the selected tab
 }
 
 var validateForm = function() {
-    //window.console.clear();
+    window.console.clear();
     var onlyLetters = /^[a-zA-Z]*$/; //regular expression that contains only letters
     var onlyNumbers = /^([1-9]?\d|100)$/; //regular expression that contains only numbers from 0-100
     var validEmail = /[\w._%+-]+@[\w.-]+\.[a-zA-Z]{2,4}/; // regular expression that contains possible email formats
@@ -92,7 +92,7 @@ var validateForm = function() {
                 }
             }
             isValid = false;
-            return isValid;
+            console.log(`%c (Sex): Please select an option 😅 `, 'color: #b14783; font-weight: bold; font-size: 1rem; background-color: #2c2c48da;'); 
         }
 
         if(tabs[currentTab].id === 'areas') {
@@ -103,12 +103,13 @@ var validateForm = function() {
                 }
             }
             isValid = false;
-            return isValid;
+            console.log(`%c (Areas of Interest): Please select an option 😅 `, 'color: #b14783; font-weight: bold; font-size: 1rem; background-color: #2c2c48da;');
         }
 
         if(tabs[currentTab].id === 'dropdown') { //checks if selection is empty
             if(select.value === '') {
                 isValid = false;
+                console.log(`%c (Country): Please select an option 😅 `, 'color: #b14783; font-weight: bold; font-size: 1rem; background-color: #2c2c48da;');
             } else {
                 isValid = true;
             }
@@ -158,7 +159,7 @@ var changeTab = function(buttonInput) { //displays the chosen tab
 
 var getCheckSelection = function() { //pushes all the checked options into selection
     var selection = [];
-    
+
     for(var i = 0; i < checks.length; i++) {
         if(checks[i].checked) {
             selection.push(checks[i].value);
