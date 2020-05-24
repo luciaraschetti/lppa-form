@@ -11,6 +11,7 @@ var inputs = null;
 var radioBtns = null;
 var checks = null;
 var select = null;
+var commentaries = null;
 var wentBack = null;
 var isValid = null;
 
@@ -147,16 +148,17 @@ var changeTab = function(buttonInput) { //displays the chosen tab
 
         getCheckSelection(); //logs 3rd tab
 
+        //logs 4th tab
         console.log(`%c (Country): ${select.value}`, 'color: #b14783; font-weight: bold; font-size: 1rem; background-color: #2c2c48da;'); 
-
-        
+        //logs 5th tab
+        console.log(`%c (Commentaries): ${commentaries.value}`, 'color: #b14783; font-weight: bold; font-size: 1rem; background-color: #2c2c48da;'); 
     }
-
     displayTab(currentTab);
 }
 
 var getCheckSelection = function() { //pushes all the checked options into selection
     var selection = [];
+    
     for(var i = 0; i < checks.length; i++) {
         if(checks[i].checked) {
             selection.push(checks[i].value);
@@ -176,6 +178,7 @@ window.onload = function() {
     radioBtns = document.getElementsByClassName('radio');
     checks = document.getElementsByName('interests');
     select = document.getElementById('countries');
+    commentaries = document.getElementById('commentaries');
     currentTab = 0;
     wentBack = false;
     isValid = true;
