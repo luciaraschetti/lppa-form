@@ -164,12 +164,16 @@ body {
     font-size: 1.4rem;
     font-family: Montserrat, sans-serif;
     font-weight: 500;
-    color: #e2e2e2;   
+    color: #e2e2e2;  
+    cursor: pointer; 
 }
 
 .wrapper .main #registration-form input:focus,
-.wrapper .main #registration-form textarea:focus {
-    outline: 1px solid #b14783;
+.wrapper .main #registration-form textarea:focus,
+.wrapper .main #registration-form input[type='checkbox']:focus,
+.wrapper .main #registration-form input[type='radio']:focus {
+    outline: none;
+    box-shadow: 0 0 0 2pt #b14783;
 }
 
 .wrapper .main #registration-form .tab {
@@ -197,6 +201,19 @@ body {
     font-family: Montserrat, sans-serif;
     font-weight: 500;
     color: #e2e2e2;
+    cursor: pointer;
+}
+
+.wrapper .main #registration-form #buttons button:focus,
+.wrapper .main #registration-form #final #home:focus {
+    outline: none;
+    box-shadow: 0 0 0 1pt #6d3153;
+}
+.wrapper .main #registration-form #buttons button:active,
+.wrapper .main #registration-form #final #home {
+    outline: none;
+    box-shadow: 0 0 0 2pt #6d3153;
+    transition: 0.05s;
 }
 
 .wrapper #steps {

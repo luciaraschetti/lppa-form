@@ -37,7 +37,6 @@ var displayTab = function(currentTab) { //displays the selected tab
 var changeTab = function(buttonInput) { //displays the chosen tab
     tabs[currentTab].setAttribute('style', 'display: none !important'); //setAttribute overrides the css & hides the current tab
     currentTab += buttonInput; //increase/decrease current tab value depending on clicked button value
-    console.log(buttonInput);
     displayTab(currentTab);
 }
 
@@ -47,6 +46,6 @@ window.onload = function() {
     backBtn = document.getElementById('back');
     submitBtn = document.getElementById('next');
     buttons = document.getElementById('buttons');
-    currentTab = 5;
+    currentTab = 0;
     displayTab(currentTab);
 }
