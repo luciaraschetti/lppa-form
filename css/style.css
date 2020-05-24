@@ -236,7 +236,6 @@ body {
 }
 
 .wrapper .main #registration-form #errorMsg {
-    display: none;
     color: rgb(182, 72, 72);
     margin: 0;
     padding: 0;

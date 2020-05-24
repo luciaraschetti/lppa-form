@@ -31,7 +31,7 @@ var displayTab = function(currentTab) { //displays the selected tab
     if(currentTab === 0) { //disables 'back' button in the 1st tab
         backBtn.disabled = true;
         backBtn.style.backgroundColor = '#7c375e';
-        errorMsg.setAttribute('style', 'display: none !important');
+        errorMsg.setAttribute('style', 'visibility: hidden !important');
     }else {
         backBtn.disabled = false;
         backBtn.style.backgroundColor = '#b14783';
@@ -39,13 +39,13 @@ var displayTab = function(currentTab) { //displays the selected tab
 
     if(currentTab === (tabs.length - 2)) { //changes 'next' to 'submit' before reaching the final message tab
         submitBtn.innerHTML = 'Submit';
-        errorMsg.setAttribute('style', 'display: none !important');
+        errorMsg.value = '';
     } else {
         submitBtn.innerHTML = 'Next';
     }
 
     if(currentTab === 5) {
-        buttons.setAttribute('style', 'display: none !important');
+        buttons.setAttribute('style', 'visibility: hidden !important');
     }
 
     stepPosition(currentTab);
@@ -105,36 +105,36 @@ var validateForm = function() {
             for(var i = 0; i < radioBtns.length; i++) { //checks if any radio button is checked
                 if(radioBtns[i].checked) {
                     isValid = true;
-                    errorMsg.setAttribute('style', 'display: none !important');
+                    errorMsg.setAttribute('style', 'visibility: hidden !important');
                     return isValid;
                 }
             }
             isValid = false;
             console.log(`%c (Sex): Please select an option 😅 `, 'color: #b14783; font-weight: bold; font-size: 1rem; background-color: #2c2c48da;'); 
-            errorMsg.setAttribute('style', 'display: flex !important');
+            errorMsg.setAttribute('style', 'visibility: visible !important');
         }
 
         if(tabs[currentTab].id === 'areas') {
             for(var i = 0; i < checks.length; i++) { //checks if any box is checked
                 if(checks[i].checked) {
                     isValid = true;
-                    errorMsg.setAttribute('style', 'display: none !important');
+                    errorMsg.setAttribute('style', 'visibility: hidden !important');
                     return isValid;
                 }
             }
             isValid = false;
             console.log(`%c (Areas of Interest): Please select an option 😅 `, 'color: #b14783; font-weight: bold; font-size: 1rem; background-color: #2c2c48da;');
-            errorMsg.setAttribute('style', 'display: flex !important');
+            errorMsg.setAttribute('style', 'visibility: visible !important');
         }
 
         if(tabs[currentTab].id === 'dropdown') { //checks if selection is empty
             if(select.value === '') {
                 isValid = false;
                 console.log(`%c (Country): Please select an option 😅 `, 'color: #b14783; font-weight: bold; font-size: 1rem; background-color: #2c2c48da;');
-                errorMsg.setAttribute('style', 'display: flex !important');
+                errorMsg.setAttribute('style', 'visibility: visible !important');
             } else {
                 isValid = true;
-                errorMsg.setAttribute('style', 'display: none !important');
+                errorMsg.setAttribute('style', 'visibility: hidden !important');
             }
         }
         
