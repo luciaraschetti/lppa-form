@@ -4,6 +4,7 @@ var tabs = null;
 var steps = null; 
 var backBtn = null;
 var submitBtn = null;
+var buttons = null;
 var currentTab = null;
 
 var stepPosition = function(tab) { //the step that corresponds to the current tab turns violet, gets the value from displayTab()
@@ -26,12 +27,16 @@ var displayTab = function(currentTab) { //displays the selected tab
         submitBtn.innerHTML = "Next";
     }
 
+    if(currentTab === 5) {
+        buttons.setAttribute('style', 'display: none !important');
+    }
+
     stepPosition(currentTab);
 }
 
 var changeTab = function(buttonInput) { //displays the chosen tab
     tabs[currentTab].setAttribute('style', 'display: none !important'); //setAttribute overrides the css & hides the current tab
-    currentTab += buttonInput; //increase/decrease current tab depending on clicked button value
+    currentTab += buttonInput; //increase/decrease current tab value depending on clicked button value
     console.log(buttonInput);
     displayTab(currentTab);
 }
@@ -41,6 +46,7 @@ window.onload = function() {
     steps = document.getElementsByClassName('step');
     backBtn = document.getElementById('back');
     submitBtn = document.getElementById('next');
-    currentTab = 0;
+    buttons = document.getElementById('buttons');
+    currentTab = 5;
     displayTab(currentTab);
 }
