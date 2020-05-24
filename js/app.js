@@ -8,6 +8,8 @@ var submitBtn = null;
 var buttons = null;
 var currentTab = null;
 var inputs = null;
+var radioBtns = null;
+var checks = null;
 var wentBack = null;
 var isValid = null;
 
@@ -79,9 +81,31 @@ var validateForm = function() {
                 }
             }
         }
+
+        if(tabs[currentTab].id === 'sex') {
+            for(var i = 0; i < radioBtns.length; i++) { //checks if any radio button is checked
+                if(radioBtns[i].checked) {
+                    isValid = true;
+                    return isValid;
+                }
+            }
+            isValid = false;
+            return isValid;
+        }
+
+        if(tabs[currentTab].id === 'areas') {
+            for(var i = 0; i < checks.length; i++) { //checks if any box is checked
+                if(checks[i].checked) {
+                    isValid = true;
+                    return isValid;
+                }
+            }
+            isValid = false;
+            return isValid;
+        }
         
     }
-    return isValid;
+    return isValid; //if false, user cannot move forward
 }
 
 var changeTab = function(buttonInput) { //displays the chosen tab
@@ -117,6 +141,8 @@ window.onload = function() {
     submitBtn = document.getElementById('next');
     buttons = document.getElementById('buttons');
     inputs = document.getElementsByTagName('input');
+    radioBtns = document.getElementsByClassName('radio');
+    checks = document.getElementsByName('interests');
     currentTab = 0;
     wentBack = false;
     isValid = true;
