@@ -144,9 +144,23 @@ var changeTab = function(buttonInput) { //displays the chosen tab
                 console.log(`%c (Sex): ${selection}`, 'color: #b14783; font-weight: bold; font-size: 1rem; background-color: #2c2c48da;'); 
             }
         }
+
+        getCheckSelection(); //logs 3rd tab
+
+
     }
 
     displayTab(currentTab);
+}
+
+var getCheckSelection = function() { //pushes all the checked options into selection
+    var selection = [];
+    for(var i = 0; i < checks.length; i++) {
+        if(checks[i].checked) {
+            selection.push(checks[i].value);
+        }
+    }
+    return console.log(`%c (Areas of Interest): ${selection}`, 'color: #b14783; font-weight: bold; font-size: 1rem; background-color: #2c2c48da;'); 
 }
 
 window.onload = function() {
