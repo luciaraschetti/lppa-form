@@ -65,30 +65,37 @@ var validateForm = function() {
             errors = document.getElementById(inputs[i].id);
             console.log( `%c (${currentInput}): Empty field 😕`, 'color: #b14783; font-weight: bold; font-size: 1rem; background-color: #2c2c48da;');
             isValid = false;
-            errors.placeholder = 'Empty field'
+            errors.placeholder = 'Empty field';
         } else {
             if(inputs[i].id === 'first-name' || inputs[i].id === 'last-name') {
+                errors = document.getElementById(inputs[i].id);
                 if(inputs[i].value.length < 3) { //validates for input longer than 3 characters
                     console.log(`%c (${currentInput}): Please enter more than 3 caracters 😅`, 'color: #b14783; font-weight: bold; font-size: 1rem; background-color: #2c2c48da;'); 
                     isValid = false;
-                    errors.placeholder = 'Please enter more than 3 caracters'
+                    errors.value = '';
+                    errors.placeholder = 'Please enter more than 3 caracters';
                 } else if (!onlyLetters.test(inputs[i].value)) {
                     console.log(`%c (${currentInput}): Please use letters and spaces only 😅`, 'color: #b14783; font-weight: bold; font-size: 1rem; background-color: #2c2c48da;'); 
                     isValid = false;
-                    errors.placeholder = 'Please use letters and spaces only'
+                    errors.value = '';
+                    errors.placeholder = 'Please use letters and spaces only';
                 }
             }
             if(inputs[i].id === 'age') { //validates age input
+                errors = document.getElementById(inputs[i].id);
                 if(!onlyNumbers.test(inputs[i].value)) { 
                     console.log(`%c (${currentInput}): Please use whole numbers between 0-100 only 👵👴`, 'color: #b14783; font-weight: bold; font-size: 1rem; background-color: #2c2c48da;'); 
                     isValid = false;
-                    errors.placeholder = 'Please use whole numbers between 0-100 only'
+                    errors.value = '';
+                    errors.placeholder = 'Whole numbers between 0-100 only'
                 }
             }
             if(inputs[i].id === 'email') { //validates email input
+                errors = document.getElementById(inputs[i].id);
                 if(!validEmail.test(inputs[i].value)) {
                     console.log(`%c (${currentInput}): Invalid email format 📧`, 'color: #b14783; font-weight: bold; font-size: 1rem; background-color: #2c2c48da;'); 
                     isValid = false;
+                    errors.value = '';
                     errors.placeholder = 'Invalid email format'
                 }
             }
