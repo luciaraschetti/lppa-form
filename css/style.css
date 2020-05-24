@@ -172,14 +172,8 @@ body {
     outline: 1px solid #b14783;
 }
 
-.wrapper .main #registration-form .tab#final,
-.wrapper .main #registration-form .tab#dropdown,
-.wrapper .main #registration-form .tab#sex,
-.wrapper .main #registration-form .tab#areas,
-.wrapper .main #registration-form .tab#comments,
-.wrapper .main #registration-form .tab#personal-info,
-.wrapper .main #registration-form #home {
-    display: none;
+.wrapper .main #registration-form .tab {
+    display: none !important;
 }
 
 .wrapper .main #registration-form #buttons {
