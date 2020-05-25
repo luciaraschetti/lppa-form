@@ -45,9 +45,10 @@ var displayTab = function(currentTab) { //displays the selected tab
         submitBtn.innerHTML = 'Next';
     }
 
-    if(currentTab === 5) {
+    if(currentTab === 5) { //hide form title and navigation buttons & change form border color on final tab
         formTitle.setAttribute('style', 'visibility: hidden !important');
         buttons.setAttribute('style', 'visibility: hidden !important');
+        form.setAttribute('style', 'border: 3px solid #b14783');
     }
 
     stepPosition(currentTab);
@@ -76,7 +77,7 @@ var validateForm = function() {
                     isValid = false;
                     errors.value = '';
                     errors.placeholder = 'Please enter more than 3 caracters';
-                } else if (!onlyLetters.test(inputs[i].value)) {
+                } else if (!onlyLetters.test(inputs[i].value)) { //.test() checks if the given regex pattern is found in the input, if not returns false
                     console.log(`%c (${currentInput}): Please use letters and spaces only 😅`, 'color: #b14783; font-weight: bold; font-size: 1rem; background-color: #2c2c48da;'); 
                     isValid = false;
                     errors.value = '';
@@ -113,7 +114,7 @@ var validateForm = function() {
             }
             isValid = false;
             console.log(`%c (Sex): Please select an option 😅 `, 'color: #b14783; font-weight: bold; font-size: 1rem; background-color: #2c2c48da;'); 
-            errorMsg.setAttribute('style', 'visibility: visible !important');
+            errorMsg.setAttribute('style', 'visibility: visible !important'); //if nothing is selected, show error msg
         }
 
         if(tabs[currentTab].id === 'areas') {
