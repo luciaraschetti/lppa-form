@@ -1,5 +1,6 @@
 'use strict'
 
+var formTitle = null;
 var form = null;
 var tabs = null;
 var steps = null; 
@@ -45,6 +46,7 @@ var displayTab = function(currentTab) { //displays the selected tab
     }
 
     if(currentTab === 5) {
+        formTitle.setAttribute('style', 'visibility: hidden !important');
         buttons.setAttribute('style', 'visibility: hidden !important');
     }
 
@@ -192,6 +194,7 @@ var getCheckSelection = function() { //pushes all the checked options into selec
 }
 
 window.onload = function() {
+    formTitle = document.getElementById('form-title');
     form = document.getElementById('registration-form');
     tabs = document.getElementsByClassName('tab');
     steps = document.getElementsByClassName('step');
