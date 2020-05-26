@@ -57,7 +57,7 @@ var displayTab = function(currentTab) { //displays the selected tab
 var validateForm = function() {
     window.console.clear();
     var onlyLetters = /^[a-zA-Z]*$/; //regular expression that contains only letters
-    var onlyNumbers = /^([1-9]?\d|100)$/; //regular expression that contains only numbers from 0-100
+    var onlyNumbers = /^([1-9][0-9]{0,1})$/; //regular expression that contains only numbers from 0-100
     var validEmail = /[\w._%+-]+@[\w.-]+\.[a-zA-Z]{2,4}/; // regular expression that contains possible email formats
     var isValid = true;
 
